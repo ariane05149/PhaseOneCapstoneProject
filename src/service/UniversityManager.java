@@ -29,4 +29,17 @@ public class UniversityManager {
         c.addStudent(stud);
         stud.enrollCourse(c);
     }
+
+    public double calculateAverageGPAByDepartment(String departrment) {
+        return students.stream()
+                .filter(s -> s.getDepartment().equalsIgnoreCase(departrment))
+                .mapToDouble(Student::getGpa)
+                .average()
+                .orElse(0.0);
+    }
+    public Student findtopStudent(){
+        return students.stream()
+                .max((s1,s2)->Double.compare(s1.getGpa(),s2.getGpa()))
+        .orElse(null);
+    }
 }
