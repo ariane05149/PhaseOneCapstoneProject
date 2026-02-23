@@ -2,7 +2,7 @@ package model;
 import java.util.Map;
 import java.util.HashMap;
 
-public class Student extends Person {
+public  class Student extends Person {
     private String studentID;
     private double gpa;
     private String department;
@@ -15,6 +15,30 @@ public class Student extends Person {
         this.department = department;
     }
 
+    public String getStudentID() {
+        return studentID;
+    }
+
+    public void setStudentID(String studentID) {
+        this.studentID = studentID;
+    }
+
+    public double getGpa() {
+        return gpa;
+    }
+
+    public void setGpa(double gpa) {
+        this.gpa = gpa;
+    }
+
+    public String getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(String department) {
+        this.department = department;
+    }
+
     public void enrollCourse(Course course) {
         courseGrades.put(course, 0.0);
     }
@@ -24,10 +48,16 @@ public class Student extends Person {
             courseGrades.put(course, grade);
         }
     }
+    public Map<Course,Double>getCourseGrades(){
+        return courseGrades;
+    }
+    public double calculateTuition(){
+        return 2000;
+    }
 
     @Override
     public void displayInfo() {
-        System.out.println("Student Name: " + getName());
+    System.out.println("Student Name: " + getName());
         System.out.println("Student Id: " + studentID);
         System.out.println("Department: " + department);
         System.out.println("GPA: " + gpa);
