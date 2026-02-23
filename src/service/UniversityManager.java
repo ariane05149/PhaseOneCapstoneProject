@@ -6,16 +6,19 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class UniversityManager {
-    private List<Student>students=new ArrayList<>();
-    private List<Course>courses=new ArrayList<>();
-    public void registerStudent(Student student){
+    private List<Student> students = new ArrayList<>();
+    private List<Course> courses = new ArrayList<>();
+
+    public void registerStudent(Student student) {
         students.add(student);
     }
-    public void createCourse(Course c){
+
+    public void createCourse(Course c) {
         courses.add(c);
     }
-    public void enrollStudentInCourse(Student stud,Course c)
-        throws CourseFullException,StudentAlreadyEnrolledException {
+
+    public void enrollStudentInCourse(Student stud, Course c)
+            throws CourseFullException, StudentAlreadyEnrolledException {
         if (c.getRoster().contains(stud)) {
             throw new StudentAlreadyEnrolledException("The student is already enrolled in this course ");
         }
@@ -26,6 +29,4 @@ public class UniversityManager {
         c.addStudent(stud);
         stud.enrollCourse(c);
     }
-
-
 }
